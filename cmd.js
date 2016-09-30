@@ -1,0 +1,190 @@
+/**
+*@Author : Shakti Phartiyal
+*@Created on : 30/Sep/2016
+**/
+var Timer = Timer || {};
+Timer={
+	number0:0,
+	number1:1,
+	number2:1,
+	number3:1,
+	pos:0,
+	pointerInterval:0,
+	stop:function(){
+		clearInterval(Timer.pointerInterval);
+	},
+	init:function(){
+		Timer.num(3,0);
+		Timer.num(2,0);
+		Timer.num(1,0);
+		Timer.num(0,0);
+		$(document).ready(function(){
+			Timer.pointerInterval = window.setInterval(function(){
+				if(Timer.pos==0)
+				{
+					Timer.num(0,Timer.number0);
+					Timer.number0++;
+					if(Timer.number0>9)
+					{
+						Timer.number0=0;
+						Timer.pos++;
+					}
+				}
+				else if(Timer.pos==1)
+				{
+					Timer.num(1,Timer.number1);
+					Timer.num(0,Timer.number0);
+					Timer.number0++;
+					if(Timer.number0>9)
+					{
+						Timer.number0=0;
+						Timer.number1++;
+					}
+					if(Timer.number1>9)
+					{
+						Timer.number1=0;
+						Timer.pos++;
+					}
+				}
+				else if(Timer.pos==2)
+				{
+					Timer.num(2,Timer.number2);
+					Timer.num(1,Timer.number1);
+					Timer.num(0,Timer.number0);
+					Timer.number0++;
+					if(Timer.number0>9)
+					{
+						Timer.number0=0;
+						Timer.number1++;
+					}
+					if(Timer.number1>9)
+					{
+						Timer.number1=0;
+						Timer.number2++;
+					}
+					if(Timer.number2>9)
+					{
+						Timer.number2=0;
+						Timer.pos++;
+					}
+				}
+				else if(Timer.pos==3)
+				{
+					Timer.num(3,Timer.number3);
+					Timer.num(2,Timer.number2);
+					Timer.num(1,Timer.number1);
+					Timer.num(0,Timer.number0);
+					Timer.number0++;
+					if(Timer.number0>9)
+					{
+						Timer.number0=0;
+						Timer.number1++;
+					}
+					if(Timer.number1>9)
+					{
+						Timer.number1=0;
+						Timer.number2++;
+					}
+					if(Timer.number2>9)
+					{
+						Timer.number2=0;
+						Timer.number3++;
+					}
+					if(Timer.number3>9)
+					{
+						alert("DONE");
+						Timer.number3=0;
+						Timer.number2=0;
+						Timer.number1=0;
+						Timer.number0=0;
+						Timer.pos=0;
+						clearInterval(Timer.pointerInterval);
+					}
+				}
+
+			}, 10);
+		});
+	},
+	num:function(col,number){
+		$('.n'+col).removeClass('active');
+		if(number==0)
+		{
+			$('#n'+col+"-0").addClass('active');
+			$('#n'+col+"-1").addClass('active');
+			$('#n'+col+"-2").addClass('active');
+			$('#n'+col+"-3").addClass('active');
+			$('#n'+col+"-4").addClass('active');
+			$('#n'+col+"-5").addClass('active');
+		}
+		else if(number==1)
+		{
+			$('#n'+col+"-1").addClass('active');
+			$('#n'+col+"-2").addClass('active');
+		}
+		else if(number==2)
+		{
+			$('#n'+col+"-0").addClass('active');
+			$('#n'+col+"-1").addClass('active');
+			$('#n'+col+"-6").addClass('active');
+			$('#n'+col+"-4").addClass('active');
+			$('#n'+col+"-3").addClass('active');
+		}
+		else if(number==3)
+		{
+			$('#n'+col+"-0").addClass('active');
+			$('#n'+col+"-1").addClass('active');
+			$('#n'+col+"-2").addClass('active');
+			$('#n'+col+"-3").addClass('active');
+			$('#n'+col+"-6").addClass('active');
+		}
+		else if(number==4)
+		{
+			$('#n'+col+"-1").addClass('active');
+			$('#n'+col+"-2").addClass('active');
+			$('#n'+col+"-5").addClass('active');
+			$('#n'+col+"-6").addClass('active');
+		}
+		else if(number==5)
+		{
+			$('#n'+col+"-0").addClass('active');
+			$('#n'+col+"-2").addClass('active');
+			$('#n'+col+"-3").addClass('active');
+			$('#n'+col+"-5").addClass('active');
+			$('#n'+col+"-6").addClass('active');
+		}
+		else if(number==6)
+		{
+			$('#n'+col+"-0").addClass('active');
+			$('#n'+col+"-2").addClass('active');
+			$('#n'+col+"-3").addClass('active');
+			$('#n'+col+"-4").addClass('active');
+			$('#n'+col+"-5").addClass('active');
+			$('#n'+col+"-6").addClass('active');
+		}
+		else if(number==7)
+		{
+			$('#n'+col+"-0").addClass('active');
+			$('#n'+col+"-1").addClass('active');
+			$('#n'+col+"-2").addClass('active');
+		}
+		else if(number==8)
+		{
+			$('#n'+col+"-0").addClass('active');
+			$('#n'+col+"-1").addClass('active');
+			$('#n'+col+"-2").addClass('active');
+			$('#n'+col+"-3").addClass('active');
+			$('#n'+col+"-4").addClass('active');
+			$('#n'+col+"-5").addClass('active');
+			$('#n'+col+"-6").addClass('active');
+		}
+		else if(number==9)
+		{
+			$('#n'+col+"-0").addClass('active');
+			$('#n'+col+"-1").addClass('active');
+			$('#n'+col+"-2").addClass('active');
+			$('#n'+col+"-3").addClass('active');
+			$('#n'+col+"-5").addClass('active');
+			$('#n'+col+"-6").addClass('active');
+		}
+	}
+}
